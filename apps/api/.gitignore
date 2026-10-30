@@ -1,0 +1,30 @@
+## Build and compile artifacts
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio / VS Code
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## User / local environment files
+appsettings.Development.json
+appsettings.*.local.json
+
+## Crash dumps and test results
+*.pdb
+TestResults/
+
