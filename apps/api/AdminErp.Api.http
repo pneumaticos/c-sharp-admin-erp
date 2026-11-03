@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:5049
+@customerId = dd4be459-34a9-4c31-b7b8-502419671e89
+@inventoryItemId = 09193f83-0d6f-4ca2-b02a-c1f7426c6401
+
+### Health and dashboard
+GET {{baseUrl}}/health
+
+### The dashboard has an envelope and correlation metadata
+GET {{baseUrl}}/api/v1/dashboard
+X-Request-Id: local-dashboard-demo
+
+### Search customers with one-based pagination
+GET {{baseUrl}}/api/v1/customers?page=1&pageSize=25&q=nuru
+
+### Validation example: returns 422 Problem Details
+POST {{baseUrl}}/api/v1/customers
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "not-an-email"
+}
+
+### Create a customer: returns 201 Created and a Location header
+POST {{baseUrl}}/api/v1/customers
+Content-Type: application/json
+
+{
+  "name": "Highland Stores",
+  "email": "accounts@highland.example",
+  "phone": "+254 700 555 100",
+  "taxNumber": "P051234569C"
+}
+
+### Filter inventory by warehouse
+GET {{baseUrl}}/api/v1/inventory/items?warehouse=Nairobi%20Main
+
+### The reference provides idempotency for retry-safe stock adjustments
+POST {{baseUrl}}/api/v1/inventory/items/{{inventoryItemId}}/adjustments
+Content-Type: application/json
+
+{
+  "quantityDelta": 12,
+  "reason": "Cycle count correction",
+  "reference": "COUNT-2026-11-02-001"
+}
+
+### Create a draft sales order using seeded development IDs
+POST {{baseUrl}}/api/v1/sales-orders
+Content-Type: application/json
+
+{
+  "customerId": "{{customerId}}",
+  "currency": "KES",
+  "externalReference": "WEB-ORDER-1008",
+  "lines": [
+    {
+      "inventoryItemId": "{{inventoryItemId}}",
+      "quantity": 3,
+      "unitPrice": 315
+    }
+  ]
+}
