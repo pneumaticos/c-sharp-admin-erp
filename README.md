@@ -166,9 +166,35 @@ Deploy the Next.js admin independently from the API.
 
 The development API uses an in-memory store with seeded customers and inventory. It is intentionally isolated behind application services so it can be replaced by EF Core and a durable database. Data created during a local session resets when the API restarts.
 
-## Next steps
+## Next steps 
 
-- Replace the in-memory store with EF Core and a relational database.
-- Add authentication, authorization, tenant isolation, and audit persistence.
-- Implement purchase, accounting, reporting, and settings modules.
-- Add API integration tests and end-to-end UI tests.
+(I'll implement this in a structured way) 
+## Learning Objectives
+
+### 1. Database Integration & Persistence
+- Integrate Entity Framework Core (EF Core) with a relational database - MSQL server.
+- Implement entity modeling, relationships, and database migrations.
+- Perform CRUD operations using LINQ.
+- Understand transactions, constraints, and data persistence.
+
+### 2. Authentication, Authorization & Multi-Tenancy
+- Implement secure authentication and session management.
+- Configure role-based and policy-based authorization (RBAC).
+- Implement multi-tenant architecture and tenant data isolation.
+- Persist audit logs and track entity changes.
+- Enforce access control at the API and database levels.
+
+### 3. Business Modules & Domain Logic
+- Design modular application architecture.
+- Implement purchase management workflows.
+- Develop accounting and financial transaction logic.
+- Build reporting and data aggregation functionality.
+- Implement configurable application settings.
+- Apply business rules, validation, and transactional consistency.
+
+### 4. Testing & Quality Assurance
+- Write API integration tests for ASP.NET Core.
+- Test authentication, authorization, and tenant isolation.
+- Implement database testing strategies.
+- Write end-to-end (E2E) UI tests using Playwright.
+- Validate complete user workflows across the frontend and backend..
