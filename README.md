@@ -2,7 +2,6 @@
 
 Ledgerly is a full-stack ERP starter for small and growing operations teams. It pairs a focused Next.js admin workspace with a typed ASP.NET Core API for customer records, inventory control, and sales-order workflows.
 
-The project is deliberately structured to show production-minded C# practices: clear endpoint groups, request and response contracts, correlation IDs, validation-friendly Problem Details responses, rate limiting, and replaceable infrastructure.
 
 ## What is included
 
@@ -162,7 +161,6 @@ Deploy the Next.js admin independently from the API.
 3. Set `NEXT_PUBLIC_API_BASE_URL` in the frontend deployment to the public API URL.
 4. Add the frontend origin to `Cors:AllowedOrigins` in the API configuration.
 
-Vercel is a good fit for the Next.js admin, but it does not run this persistent ASP.NET Core API as part of the same deployment.
 
 ## Current persistence model
 
